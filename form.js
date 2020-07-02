@@ -1,11 +1,14 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const app = express()
+const express = require('express');
+const bodyparser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: false}))
+const app = express();
 
-app.post('/form', function(req, res) {
-  res.send(req.body.str.split('').reverse().join(''))
-})
+app.use(bodyparser.urlencoded({extended: false}));
 
-app.listen(process.argv[2])
+app.post('/form', function(req, res){
+    return req.body.str.split('').reverse().join('');
+});
+
+app.listen(process.argv[2]);
+
+console.log("Application started.");
